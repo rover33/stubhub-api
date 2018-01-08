@@ -22,17 +22,20 @@ app.get('/', function (req, res) {
 });
 
 
-app.get('/name', function (req, res){
+app.get('/events', function (req, res){
     console.log(headers)
     axios.get("https://api.stubhub.com/search/catalog/events/v3", {headers: headers})
-        .then(function(response){
-            console.log(response);
+        .then(function(response,body){
+            console.log(response.data);
         })
         .catch(function(error){
             console.log(error)
         })
        
 })
+
+
+
 
 
 
