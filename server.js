@@ -23,8 +23,8 @@ app.get('/', function (req, res) {
 
 app.get('/name', function (req, res){
     request("https://api.stubhub.com/search/catalog/events/v3", function(error, response, body){
-        body.events.name;
-        console.log(body.events.name)
+        body.events[0].name;
+        console.log(body.events[0].name)
     })
 })
 
