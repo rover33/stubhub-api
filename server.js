@@ -1,7 +1,8 @@
 //require express and modules
 var express = require('express'),
     app = express(),
-    request = require('request');
+    request = require('request'),
+    axios = require('axios');
 
 //parse incoming form data
 //populate the req.body object
@@ -9,8 +10,8 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-//database
-var db = require('./models');
+//tokens
+var headers = require('./models');
 
 // serve static files in public
 app.use(express.static('public'));
@@ -22,10 +23,15 @@ app.get('/', function (req, res) {
 
 
 app.get('/name', function (req, res){
-    request("https://api.stubhub.com/search/catalog/events/v3", function(error, response, body){
-        body.events[0].name;
-        console.log(body.events[0].name)
-    })
+    console.log(headers)
+    axios.get("https://api.stubhub.com/search/catalog/events/v3", {headers: headers})
+        .then(function(response){
+            console.log(response);
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+       
 })
 
 
