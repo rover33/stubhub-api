@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 
 //tokens
 var headers = require('./models/env');
+// var db = require('./model')
 
 // serve static files in public
 app.use(express.static('public'));
@@ -24,7 +25,7 @@ app.get('/', function (req, res) {
 //get index of events
 app.get('/events', function (req, res){
     console.log(headers)
-    axios.get("https://api.stubhub.com/search/catalog/events/v3", {headers: headers})
+    axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
         .then(function(response,body){
             res.send(response.data);
         })
@@ -36,7 +37,7 @@ app.get('/events', function (req, res){
 //get name of one event
 app.get('/events/name', function (req, res){
     console.log(headers)
-    axios.get("https://api.stubhub.com/search/catalog/events/v3", {headers: headers})
+    axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
         .then(function(response,body){
             res.send(response.data.events[0].name);
         })
@@ -46,24 +47,24 @@ app.get('/events/name', function (req, res){
     })
 
 
-app.post('/events/save'), function (req,res){
-    axios({
-        method: "POST",
-        url: "https://api.stubhub.com/search/catalog/events/v3", 
-        headers: headers,
-        data: {
-            name: req.body.events.name,
-            venue: req.body.name,
-            city: req.body.city
-            }
-        })
-        .then(function(response, body){
-            console.log(response.data)
-    })
-        .catch(funtion(error)(
-            console.log(error)
-        ))
-}
+// app.post('/events/save'), function (req,res){
+//     axios({
+//         method: "POST",
+//         url: "https://api.stubhub.com/search/catalog/events/v3", 
+//         headers: headers,
+//         data: {
+//             name: req.body.events.name,
+//             venue: req.body.name,
+//             city: req.body.city
+//             }
+//         })
+//         .then(function(response, body){
+//             console.log('fuck')
+//     })
+//         .catch(funtion(error)(
+//             console.log(error)
+//         ))
+// }
 
 
 
