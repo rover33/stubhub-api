@@ -21,18 +21,46 @@ app.get('/', function (req, res) {
   res.sendFile('views/index.html' , { root : __dirname});
 });
 
-
+//get index of events
 app.get('/events', function (req, res){
     console.log(headers)
     axios.get("https://api.stubhub.com/search/catalog/events/v3", {headers: headers})
         .then(function(response,body){
-            console.log(response.data);
+            res.send(response.data);
         })
         .catch(function(error){
             console.log(error)
         })
-       
 })
+
+//get name of one event
+app.get('/events/name', function (req, res){
+    console.log(headers)
+    axios.get("https://api.stubhub.com/search/catalog/events/v3", {headers: headers})
+        .then(function(response,body){
+            res.send(response.data.events[0].name);
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+})
+
+
+app.post('/events/save'), function (req,res){
+    axios({
+        method: "POST",
+        url: "https://api.stubhub.com/search/catalog/events/v3", 
+        headers: headers,
+        data: {
+            name: req.body.events.name,
+            venue: req.body.name,
+            city: req.body.city
+            }
+        })
+        .then(function(){
+    })
+}
+
 
 
 
