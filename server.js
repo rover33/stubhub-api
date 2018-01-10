@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //tokens
-var headers = require('./models');
+var headers = require('./models/env');
 
 // serve static files in public
 app.use(express.static('public'));
@@ -31,7 +31,7 @@ app.get('/events', function (req, res){
         .catch(function(error){
             console.log(error)
         })
-})
+    })
 
 //get name of one event
 app.get('/events/name', function (req, res){
@@ -43,7 +43,7 @@ app.get('/events/name', function (req, res){
         .catch(function(error){
             console.log(error)
         })
-})
+    })
 
 
 app.post('/events/save'), function (req,res){
@@ -57,10 +57,13 @@ app.post('/events/save'), function (req,res){
             city: req.body.city
             }
         })
-        .then(function(){
+        .then(function(response, body){
+            console.log(response.data)
     })
+        .catch(funtion(error)(
+            console.log(error)
+        ))
 }
-
 
 
 
