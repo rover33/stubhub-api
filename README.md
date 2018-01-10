@@ -49,7 +49,7 @@ To install and uss Mocha.js and Chai.js you need to have Node downloaded and NPM
 
 To install and uss Normalize.css you need to have Node downloaded and NPM install normalize.css inside the project folder you want to use it in. once installed make sure the tag looks like this in your header. 
 [Normalize.css](https://necolas.github.io/normalize.css/)
-"<link rel="stylesheet" href="node_modules/normalize.css/normalize.css">"
+<link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
 
 
 
