@@ -52,18 +52,36 @@ app.get('/events/name', function (req, res){
     })
 
 
-// app.post('/events/save'), function (req,res){
-//    db.Festival.create({
+//save api info to DB
+app.post('/events/save', function (req, res){
+    db.Festival.create({
 
-//    })
-
-
-
-
+    })
+})
 
 
+//add new festival to list
+app.post('/events'), function (req,res){
+   let newFestival = new db.Festival.create({
+        name: response.data.events[0].name,
+        venue: response.data.events[0].venue.name,
+        city: response.data.events[0].venue.city,
+        eventDateLocal: response.data.events[0].eventDateLocal
+        }, function(err, newFestival){
+            console.log(newFestival)
+        })
+    
+    //save new festival to database
+    newFestival.save(function(err, Festival){
+        if (err) {
+            return console.log("There is an error: " + err);
+        }
+        console.log("created ", newFestival);
+        res.json(Festival)
+        })
 
-
+    } 
+    
 
 
 

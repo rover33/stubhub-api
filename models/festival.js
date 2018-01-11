@@ -8,6 +8,6 @@ let FestivalSchema = new Schema ({
     eventDateLocal : Number
 });
 
-let Festival = mongoose.model('festical', FestivalSchema)
+let Festival = mongoose.model('festival', FestivalSchema)
 
 module.exports = Festival;

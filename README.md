@@ -34,6 +34,7 @@ I will be utilizing the Stub Hub API to pull their list of events. I want to be 
 -ejs.js
 -Mocha
 -Chai
+-normalize.css
 
 ### Installation
 
