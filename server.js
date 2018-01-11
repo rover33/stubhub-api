@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 //tokens
 var headers = require('./models/env');
-// var db = require('./model')
+var db = require('./models')
 
 // serve static files in public
 app.use(express.static('public'));
@@ -39,7 +39,12 @@ app.get('/events/name', function (req, res){
     console.log(headers)
     axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
         .then(function(response,body){
-            res.send(response.data.events[0].name);
+            let concert = {
+                name: response.data.events[0].name,
+                venue: response.data.events[0].venue.name,
+                eventDateLocal: response.data.events[0].eventDateLocal
+            }
+            res.send(concert);
         })
         .catch(function(error){
             console.log(error)
@@ -48,23 +53,9 @@ app.get('/events/name', function (req, res){
 
 
 // app.post('/events/save'), function (req,res){
-//     axios({
-//         method: "POST",
-//         url: "https://api.stubhub.com/search/catalog/events/v3", 
-//         headers: headers,
-//         data: {
-//             name: req.body.events.name,
-//             venue: req.body.name,
-//             city: req.body.city
-//             }
-//         })
-//         .then(function(response, body){
-//             console.log('fuck')
-//     })
-//         .catch(funtion(error)(
-//             console.log(error)
-//         ))
-// }
+//    db.Festival.create({
+
+//    })
 
 
 

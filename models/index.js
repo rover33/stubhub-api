@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-mongoose.connect('monogodb://localhost/3000')
+mongoose.connect('monogodb://localhost:3000')
 
 
 
