@@ -4,7 +4,6 @@ let express = require('express'),
     request = require('request'),
     axios = require('axios');
     require('dotenv').config()
-    console.log(process.env)
 
 //parse incoming form data
 //populate the req.body object
@@ -60,9 +59,22 @@ app.get('/events/name', function (req, res){
 
 //save api info to DB
 app.post('/events/save', function (req, res){
-    db.Festival.create({
-
+    console.log(req.body)
+    let eventFest = new db.Festival.create({
+        name: res.data.events[0].name,
+        venue: res.data.events[0].venue.name,
+        city: res.data.events[0].venue.city,
+        eventDateLocal: res.data.events[0].eventDateLocal
     })
+    res.json(eventFest)
+    console.log(eventFest)
+    // Festival.save(function(err, Festival){
+    //     if (err){
+    //         return console.log("RUN THERE IS AN ERROR: " + err)
+    //     }
+    //     console.log("created db", Festival)
+    //     res.json(Festival)
+    // })
 })
 
 
