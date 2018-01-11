@@ -31,6 +31,7 @@ I will be utilizing the Stub Hub API to pull their list of events. I want to be 
 -Express.js,
 -Axios.js
 -Passport.js
+-ejs.js
 -Mocha
 -Chai
 
@@ -48,6 +49,10 @@ Let axios = require('axios');
 To install and uss Passport.js you need to have Node downloaded and NPM install passport inside the project folder you want to use it in. once installed make sure to include it in your header like this.
 [Passport.js](http://www.passportjs.org/)
 Let passport = require('passport');
+
+To install and uss EJS you need to have Node downloaded and NPM install --save ejs inside the project folder you want to use it in. once installed make sure to include it in your header like this.
+[ejs](https://www.npmjs.com/package/ejs)
+
 
 To install and uss Mocha.js and Chai.js you need to have Node downloaded and NPM install --save-dev mocha chai inside the project folder you want to use it in. once installed make sure to include it in your header like this.
 [Mocha.js](9https://mochajs.org/)

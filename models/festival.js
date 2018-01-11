@@ -1,13 +1,13 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
-var FestivalSchema = new Schema ({
+let FestivalSchema = new Schema ({
     name: String,
     venue: String,
     city: String,
     eventDateLocal : Number
 });
 
-var Festival = mongoose.model('festical', FestivalSchema)
+let Festival = mongoose.model('festical', FestivalSchema)
 
 module.exports = Festival;

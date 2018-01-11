@@ -1,18 +1,18 @@
 //require express and modules
-var express = require('express'),
+let express = require('express'),
     app = express(),
     request = require('request'),
     axios = require('axios');
 
 //parse incoming form data
 //populate the req.body object
-var bodyParser = require('body-parser');
+let bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //tokens
-var headers = require('./models/env');
-var db = require('./models')
+let headers = require('./models/env');
+let db = require('./models')
 
 // serve static files in public
 app.use(express.static('public'));
