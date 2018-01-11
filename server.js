@@ -3,7 +3,6 @@ let express = require('express'),
     app = express(),
     request = require('request'),
     axios = require('axios');
-    dotenv = require('dotenv')
 
 //parse incoming form data
 //populate the req.body object
@@ -12,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //tokens
-let headers = require.config({path:'./model/env'})
+let headers = require('dotenv').config({path:'./model/env'})
 let db = require('./models')
 
 // serve static files in public
