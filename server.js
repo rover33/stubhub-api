@@ -32,7 +32,8 @@ app.get('/events', function (req, res){
     console.log(headers)
     axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
         .then(function(response,body){
-            res.send(response.data);
+            res.send(response.data)
+            console.log(response.data)
         })
         .catch(function(error){
             console.log(error)
@@ -58,16 +59,16 @@ app.get('/events/name', function (req, res){
 
 
 //save api info to DB
-app.post('/events/save', function (req, res){
-    console.log(req.body)
-    let eventFest = new db.Festival.create({
-        name: res.data.events[0].name,
-        venue: res.data.events[0].venue.name,
-        city: res.data.events[0].venue.city,
-        eventDateLocal: res.data.events[0].eventDateLocal
-    })
-    res.json(eventFest)
-    console.log(eventFest)
+// app.post('/events/save', function (req, res){
+//     console.log(req.body)
+//     db.Festival.create({
+//         name: data.events[0].name,
+//         venue: data.events[0].venue.name,
+//         city: data.events[0].venue.city,
+//         eventDateLocal: data.events[0].eventDateLocal
+//     })
+//     res.json(Festval)
+//     console.log(Festival)
     // Festival.save(function(err, Festival){
     //     if (err){
     //         return console.log("RUN THERE IS AN ERROR: " + err)
@@ -75,30 +76,30 @@ app.post('/events/save', function (req, res){
     //     console.log("created db", Festival)
     //     res.json(Festival)
     // })
-})
+// })
 
 
 //add new festival to list
-app.post('/events'), function (req,res){
-   let newFestival = new db.Festival.create({
-        name: response.data.events[0].name,
-        venue: response.data.events[0].venue.name,
-        city: response.data.events[0].venue.city,
-        eventDateLocal: response.data.events[0].eventDateLocal
-        }, function(err, newFestival){
-            console.log(newFestival)
-        })
+// app.post('/events'), function (req,res){
+//    let newFestival = new db.Festival.create({
+//         name: response.data.events[0].name,
+//         venue: response.data.events[0].venue.name,
+//         city: response.data.events[0].venue.city,
+//         eventDateLocal: response.data.events[0].eventDateLocal
+//         }, function(err, newFestival){
+//             console.log(newFestival)
+//         })
     
-    //save new festival to database
-    newFestival.save(function(err, Festival){
-        if (err) {
-            return console.log("There is an error: " + err);
-        }
-        console.log("created ", newFestival);
-        res.json(Festival)
-        })
+//     //save new festival to database
+//     newFestival.save(function(err, Festival){
+//         if (err) {
+//             return console.log("There is an error: " + err);
+//         }
+//         console.log("created ", newFestival);
+//         res.json(Festival)
+//         })
 
-    } 
+//     } 
     
 
 

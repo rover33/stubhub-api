@@ -22,7 +22,7 @@ $(document).ready(function(){
     $(this).trgigger("reset");
 
     $.ajax({
-        url: "/events",
+        url: "/events/save",
         type: "POST",
         data: formdata,
         dataType: "string"
