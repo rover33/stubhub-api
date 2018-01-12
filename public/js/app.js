@@ -19,15 +19,15 @@ $(document).ready(function(){
     
     // var formdata = $(this).serialize();
 
-    // $(this).trgigger("reset");
+    $(this).trgigger("reset");
 
     $.ajax({
         url: "/events/save",
         type: "POST",
         data: JSON,
-        dataType: "string"
+        dataType: "JSON"
     }).done(function(data){
         console.log("post succuess")
         renderFestival(data)
     })
-
+})

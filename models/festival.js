@@ -5,7 +5,7 @@ let FestivalSchema = new Schema ({
     name: String,
     venue: String,
     city: String,
-    eventDateLocal : Number
+    eventDateLocal : String
 });
 
 let Festival = mongoose.model('festival', FestivalSchema)

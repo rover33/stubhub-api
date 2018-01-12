@@ -32,6 +32,15 @@ app.get('/events', function (req, res){
     console.log(headers)
     axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
         .then(function(response,body){
+            let festivals = response.data.events
+            // console.log(festivals)
+            festivals.forEach(function(festival){
+                console.log(festivals[0].venue.eventDateLocal)
+                db.Festival.create({
+
+                })
+                // console.log(festival)
+            })
             res.send(response.data)
         })
         .catch(function(error){
@@ -58,15 +67,15 @@ app.get('/events/name', function (req, res){
 
 
 //save api info to DB
-app.post('/events/save', function (req, res){
-    db.Festival.create({
-        name: req.body.name,
-        // venue: req.body.events[0].venue.name,
-        // city: req.body.events[0].venue.city,
-        // eventDateLocal: req.body.events[0].eventDateLocal
-    })
-    res.json(req.body)
-    console.log(req.body)
+// app.post('/events/save', function (req, res){
+//     db.Festival.create({
+//         name: req.body.name,
+//         // venue: req.body.events[0].venue.name,
+//         // city: req.body.events[0].venue.city,
+//         // eventDateLocal: req.body.events[0].eventDateLocal
+//     })
+//     res.json(req.body)
+//     console.log(req.body)
 
 
     // Festival.save(function(err, Festival){
@@ -76,7 +85,7 @@ app.post('/events/save', function (req, res){
     //     console.log("created db", Festival)
     //     res.send(Festival)
     // })
-})
+// })
 
 
 //add new festival to list
