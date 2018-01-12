@@ -1,36 +1,28 @@
-// let express = require('express'),
-//     app = express(),
-//     request = require('request'),
-//     db = require("../models")
-//     axios = require('axios');
-//     require('dotenv').config()
+let db = require("../models")
+    
+let festival_list = [
+    {
+        name: "Coachella",
+        venue: "Empire Polo Fields",
+        city: "Palm Springs",
+        eventDateLocal: "6pm"
+    }
 
+]
+    
+console.log(festival_list)
 
-
-// const headers = { 
-//     "Content-Type": process.env.CONTENT_TYPE,
-//     "Authorization": process.env.AUTHORIZATION
-// }
-
-// app.get('/events', function (req, res){
-//     console.log(headers)
-//     axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
-//         .then(function(response,body){
-//             res.send(response.data);
-//         })
-//         .catch(function(error){
-//             console.log(error)
-//         })
-
-// db.Festival.remove({}, function(err, festival){
+db.Festival.remove({}, function(err, festivals){
+    console.log(festivals)
+    if (err) { return console.log('ERROR', err); }
+    console.log("all festivals", festivals);
     
 
-//     db.Festival.create(response.data, function(err, festivals){
-//         if (err) { return console.log('ERROR', err); }
-//     console.log("all festivals", festival);
-//     process.exit();
-//   });
+    db.Festival.create(festival_list, function(err, festivals){
+        if (err) { return console.log('ERROR', err); }
+    console.log("all festivals", festivals);
+    // process.exit();
+  });
 
-// })
-// })
+})
 

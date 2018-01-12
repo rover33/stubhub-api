@@ -32,16 +32,19 @@ app.get('/events', function (req, res){
     console.log(headers)
     axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
         .then(function(response,body){
-            let festivals = response.data.events
-            // console.log(festivals)
-            festivals.forEach(function(festival){
-                console.log(festivals[0].venue.eventDateLocal)
+            var festivals = response.data.events
+            console.log (typeof(festivals))
+            for (var i = 0; i < festivals.length; i++){
+                console.log(festivals[i].name)
                 db.Festival.create({
-
-                })
+                    // name: festivals[i].name,
+                    // venue: festivals[i].venue.name,
+                    // city: festivals[i].venue.city,
+                    // eventDateLocal: festivals[i].eventDateLocal
                 // console.log(festival)
-            })
-            res.send(response.data)
+                })
+            }
+            res.send(response.data.events)
         })
         .catch(function(error){
             console.log(error)
