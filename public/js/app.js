@@ -17,17 +17,17 @@ $(document).ready(function(){
     $('form').submit(function(e){
         e.preventDefault();
     
-    var formdata = $(this).serialize();
+    // var formdata = $(this).serialize();
 
-    $(this).trgigger("reset");
+    // $(this).trgigger("reset");
 
     $.ajax({
         url: "/events/save",
         type: "POST",
-        data: formdata,
+        data: JSON,
         dataType: "string"
     }).done(function(data){
         console.log("post succuess")
         renderFestival(data)
     })
-})
+

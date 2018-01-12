@@ -33,7 +33,6 @@ app.get('/events', function (req, res){
     axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
         .then(function(response,body){
             res.send(response.data)
-            console.log(response.data)
         })
         .catch(function(error){
             console.log(error)
@@ -59,33 +58,36 @@ app.get('/events/name', function (req, res){
 
 
 //save api info to DB
-// app.post('/events/save', function (req, res){
-//     console.log(req.body)
-//     db.Festival.create({
-//         name: data.events[0].name,
-//         venue: data.events[0].venue.name,
-//         city: data.events[0].venue.city,
-//         eventDateLocal: data.events[0].eventDateLocal
-//     })
-//     res.json(Festval)
-//     console.log(Festival)
+app.post('/events/save', function (req, res){
+    db.Festival.create({
+        name: req.body.name,
+        // venue: req.body.events[0].venue.name,
+        // city: req.body.events[0].venue.city,
+        // eventDateLocal: req.body.events[0].eventDateLocal
+    })
+    res.json(req.body)
+    console.log(req.body)
+
+
     // Festival.save(function(err, Festival){
     //     if (err){
     //         return console.log("RUN THERE IS AN ERROR: " + err)
     //     }
     //     console.log("created db", Festival)
-    //     res.json(Festival)
+    //     res.send(Festival)
     // })
-// })
+})
 
 
 //add new festival to list
-// app.post('/events'), function (req,res){
+// app.post('/events/save'), function (req,res){
+//     let data = req.body
+//     console.log(req.body)
 //    let newFestival = new db.Festival.create({
-//         name: response.data.events[0].name,
-//         venue: response.data.events[0].venue.name,
-//         city: response.data.events[0].venue.city,
-//         eventDateLocal: response.data.events[0].eventDateLocal
+//         name: req.body.events[0].name,
+//         venue: req.body.events[0].venue.name,
+//         city: req.body.events[0].venue.city,
+//         eventDateLocal: req.body.events[0].eventDateLocal
 //         }, function(err, newFestival){
 //             console.log(newFestival)
 //         })
@@ -93,13 +95,14 @@ app.get('/events/name', function (req, res){
 //     //save new festival to database
 //     newFestival.save(function(err, Festival){
 //         if (err) {
+//             return res.err('couldnt save festival')
 //             return console.log("There is an error: " + err);
 //         }
 //         console.log("created ", newFestival);
 //         res.json(Festival)
 //         })
 
-//     } 
+    // } 
     
 
 
