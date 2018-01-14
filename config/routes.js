@@ -28,6 +28,20 @@ router.post('/signup', function(req, res, next){
     return signupStrategy(req, res, next);
 });
 
+router.get('/login', function(req, res){
+    res.render('login')
+});
+
+router.post('/login', function(req, res, next){
+    let loginStrategy = passport.authenticate('local-login', {
+        successRedirect: '/',
+        failureRedirect: '/login',
+        failureFlash: true  
+    });
+    return loginStrategy(request, response, next);
+});
+
+
 
 //website routes
 //get index of events

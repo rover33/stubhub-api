@@ -38,4 +38,27 @@ module.exports = function(passport){
         });
 
     }));
+
+    passport.use('local-login', new LocalStrategy({
+        usernameField: 'email',
+        passwordField: 'paddword',
+        passReqToCallback: true
+    }, function(req, email, password, callback){
+
+        User.findOne({ 'local.eamil' : email}, function(err, user){
+            if(err) {
+                return callback(err);
+            }
+
+            if (!user) {
+                return callback(null, false, req.flash('loginMessage', 'no user found.'));
+            }
+
+            if(!user.validPassword(password)){
+                return callback(null, false, req.flash('loginMessage', 'Wrong password.')); 
+            }
+            
+            return callback(null, user);
+        });
+    }));
 };
