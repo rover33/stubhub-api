@@ -38,7 +38,7 @@ router.post('/login', function(req, res, next){
         failureRedirect: '/login',
         failureFlash: true  
     });
-    return loginStrategy(request, response, next);
+    return loginStrategy(req, res, next);
 });
 
 
