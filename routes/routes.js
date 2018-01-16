@@ -1,7 +1,7 @@
 const router = require('express').Router(),
-    request = require('request'),
-    axios = require('axios');
-    require('dotenv').config()
+      request = require('request'),
+      axios = require('axios');
+      require('dotenv').config()
 
 
 //requireing models
