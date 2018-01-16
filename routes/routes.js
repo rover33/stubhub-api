@@ -1,5 +1,7 @@
 const router = require('express').Router(),
       request = require('request'),
+      path = require("path"),
+      flash = require('connect-flash'),
       axios = require('axios');
       require('dotenv').config()
 
@@ -19,7 +21,7 @@ const headers = {
   
 //authentication routes
 router.get('/signup', function(req, res){
-    res.render('signup')
+    res.render('signup.ejs', {message: req.flash('signupMessage')});
 });
 
 router.post('/signup', function(req, res, next){
@@ -33,11 +35,11 @@ router.post('/signup', function(req, res, next){
 });
 
 router.get('/login', function(req, res){
-    res.render('login')
+    res.render('login.ejs', {message: req.flash('loginMessage')})
 });
 
 router.post('/login', function(req, res, next){
-    console.log('attempting to login')
+    console.log('attempting to')
     let loginStrategy = passport.authenticate('local-login', {
         successRedirect: '/',
         failureRedirect: '/login',
@@ -51,6 +53,11 @@ router.post('/login', function(req, res, next){
 
 //website routes
 //get index of events
+
+// router.get('/newEvent', function(req, res){
+//     res.sendfile(path.join(__dirname + "/views/index.html"))   
+// })
+
 router.get('/events', function (req, res){
     console.log(headers)
     axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
@@ -99,17 +106,17 @@ router.post('/events/save', function (req,res){
     }
 
 
-    db.Festival.create(festival, function(err, user){
+    festival.save(function(err, user){
         if (err) 
-            return res.err("there was an error", err);
-        res.send("yay")
+            return res.send("there was an error", err);
+        res.send("festival saved")
     })
 
 })
 
 
 //delete festival from the list
-router.delete('/events/name'), function(req,res){
+router.delete('/events/save'), function(req,res){
     console.log(req.params)
     let festivalId = req.params.id;
 
