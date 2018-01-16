@@ -12,17 +12,18 @@ $(document).ready(function(){
     // $(this).trigger("reset");
 
 
-axios({
-    url: "http://localhost:3000/api/events/save",
-    type: "POST",
-    data: {
-        "name": name,
-        "venue": venue,
-        "city": city,
-        "eventDateLocal": eventDateLocal
-    }
-})
-})
+        axios({
+            url: "http://localhost:3000/api/events/save",
+            type: "POST",
+            data: {
+                "name": name,
+                "venue": venue,
+                "city": city,
+                "eventDateLocal": eventDateLocal
+            }
+           
+        })
+    })
 })
 
 
@@ -41,7 +42,7 @@ axios({
 
 
 //     $.ajax({
-        // url: "http://localhost:3000/api/events/save",
+//         url: "http://localhost:3000/api/events/save",
 //         type: "POST",
 //         dataType: "JSON",
 //         data: {
@@ -54,5 +55,4 @@ axios({
 //         console.log(data)
 //         renderFestival(data)
 //     })
-// })
 // })
