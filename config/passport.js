@@ -45,15 +45,16 @@ module.exports = function(passport){
         passReqToCallback: true
     }, function(req, email, password, callback){
 
-        User.findOne({ 'local.email' : email}, function(err, user){
+        //searc for user with this email
+        User.findOne({ 'email' : email}, function(err, user){
             if(err) {
                 return callback(err);
             }
-
+            //if no user is found
             if (!user) {
                 return callback(null, false, req.flash('loginMessage', 'no user found.'));
             }
-
+            //wrong password
             if(!user.validPassword(password)){
                 return callback(null, false, req.flash('loginMessage', 'Wrong password.')); 
             }

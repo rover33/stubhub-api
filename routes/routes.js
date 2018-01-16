@@ -99,7 +99,7 @@ router.post('/events/save', function (req,res){
     }
 
 
-    festival.save(function(err, user){
+    db.Festival.create(festival, function(err, user){
         if (err) 
             return res.err("there was an error", err);
         res.send("yay")
@@ -109,7 +109,7 @@ router.post('/events/save', function (req,res){
 
 
 //delete festival from the list
-router.delete('/events/save'), function(req,res){
+router.delete('/events/name'), function(req,res){
     console.log(req.params)
     let festivalId = req.params.id;
 
