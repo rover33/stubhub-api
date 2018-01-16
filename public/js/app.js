@@ -17,36 +17,36 @@ $(document).ready(function(){
 //     }
 // })
 
-    $.ajax({
-        url: "/events",
-        type: "get",
-        contentType: "application/json"
-    }).done(function(data){
-        data.forEach(function(festival){
-            renderFestival(festival)
-        });
-    })
-})
+//     $.ajax({
+//         url: "/events",
+//         type: "get",
+//         contentType: "application/json"
+//     }).done(function(data){
+//         data.forEach(function(festival){
+//             renderFestival(festival)
+//         });
+//     })
+// })
 
-    $('form').submit(function(e){
-        e.preventDefault();
+//     $('form').submit(function(e){
+//         e.preventDefault();
     
-    var formdata = $(this).serialize();
+//     var formdata = $(this).serialize();
 
-    $(this).trigger("reset");
+//     $(this).trigger("reset");
 
     $.ajax({
-        url: "/events/save",
+        url: "http://localhost:3000/events/save",
         type: "POST",
         dataType: "JSON",
         data: {
-                "name": "name",
-                "venue": "venue",
-                "city": "city",
-                "eventDateLocal": "eventDateLocal"
+                "name": name,
+                "venue": venue,
+                "city": city,
+                "eventDateLocal": eventDateLocal
                 }
     }).done(function(data){
-        console.log("post succuess")
+        console.log(data)
         renderFestival(data)
     })
 })
