@@ -52,12 +52,16 @@ router.post('/login', function(req, res, next){
 
 
 //website routes
+router.get('/newEvent', function(req, res){
+    res.sendfile(path.join(process.cwd(),"/views/index.html"))   
+})
+
+router.get('/search', function(req,res){
+    res.sendfile(path.join(process.cwd(),"/views/search.html"))
+})
+
+
 //get index of events
-
-// router.get('/newEvent', function(req, res){
-//     res.sendfile(path.join(__dirname + "/views/index.html"))   
-// })
-
 router.get('/events', function (req, res){
     console.log(headers)
     axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
@@ -70,13 +74,14 @@ router.get('/events', function (req, res){
     })
 
 //get name of one event
-router.get('/events/name', function (req, res){
+router.get('/events/:id', function (req, res){
     console.log(headers)
     axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
         .then(function(response,body){
             let concert = {
                 name: response.data.events[0].name,
                 venue: response.data.events[0].venue.name,
+                city: response.data.events[0].venue.city,
                 eventDateLocal: response.data.events[0].eventDateLocal
             }
             res.send(concert);
@@ -108,7 +113,8 @@ router.post('/events/save', function (req,res){
 
     festival.save(function(err, user){
         if (err) 
-            return res.send("there was an error", err);
+            res.send("there was an error" + err);
+        else
         res.send("festival saved")
     })
 
@@ -116,7 +122,7 @@ router.post('/events/save', function (req,res){
 
 
 //delete festival from the list
-router.delete('/events/save'), function(req,res){
+router.delete('/events/:id'), function(req,res){
     console.log(req.params)
     let festivalId = req.params.id;
 
@@ -127,26 +133,6 @@ router.delete('/events/save'), function(req,res){
     
 
 module.exports = router;
-//save api info to DB
-// app.post('/events/save', function (req, res){
-//     db.Festival.create({
-//         name: req.body.name,
-//         // venue: req.body.events[0].venue.name,
-//         // city: req.body.events[0].venue.city,
-//         // eventDateLocal: req.body.events[0].eventDateLocal
-//     })
-//     res.json(req.body)
-//     console.log(req.body)
-
-
-    // Festival.save(function(err, Festival){
-    //     if (err){
-    //         return console.log("RUN THERE IS AN ERROR: " + err)
-    //     }
-    //     console.log("created db", Festival)
-    //     res.send(Festival)
-    // })
-// })
 
 
 

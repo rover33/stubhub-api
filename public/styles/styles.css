@@ -20,3 +20,19 @@ label{
     text-align: center;
     font-size: 3rem;
 }
+
+#navBar{
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+a{
+    padding: 2rem;
+}
+
+#musicFest{
+    text-align: center;
+    color: white;
+    font-size: 4rem;
+}

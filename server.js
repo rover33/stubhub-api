@@ -21,7 +21,7 @@ app.use(express.static('public'));
 
 // define a root route: localhost:3000/
 app.get('/', function (req, res) {
-    res.sendFile('views/index.html' , { root : __dirname});
+    res.sendFile('views/landingpage.html' , { root : __dirname});
   });
 
 //Set up EJS
