@@ -24,7 +24,7 @@ router.get('/signup', function(req, res){
 
 router.post('/signup', function(req, res, next){
     let signupStrategy = passport.authenticate('local-signup', {
-        successRedirect: '/login',
+        successRedirect: '/',
         failureRedirect: '/signup',
         failureFlash: true
     });
@@ -37,6 +37,7 @@ router.get('/login', function(req, res){
 });
 
 router.post('/login', function(req, res, next){
+    console.log('attempting to login')
     let loginStrategy = passport.authenticate('local-login', {
         successRedirect: '/',
         failureRedirect: '/login',
