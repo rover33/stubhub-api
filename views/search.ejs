@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <% for (let i = 0; i < festivals.length; i++) { %>
+            <div class = "festivalInfo">
+                <li>Name:<%= festivals[i].name %></li>
+                <li>Venue:<%= festivals[i].venue %></li>
+                <li>City:<%= festivals[i].city %></li>
+                <li>Date:<%= festivals[i].eventDateLocal %></li>
+            </div>    
+            <br>
+        <% } %>
+    </ul>
+    
+</body>
+</html>

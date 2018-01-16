@@ -56,9 +56,6 @@ router.get('/newEvent', function(req, res){
     res.sendfile(path.join(process.cwd(),"/views/index.html"))   
 })
 
-router.get('/search', function(req,res){
-    res.sendfile(path.join(process.cwd(),"/views/search.html"))
-})
 
 
 //get index of events
@@ -90,6 +87,19 @@ router.get('/events/:id', function (req, res){
             console.log(error)
         })
     })
+
+
+//Search list of events
+router.get('/search', function(req,res){
+    db.Festival.find({}, function(err, festivals){
+        if (err)
+            res.send("there is an error" + err)
+
+        else
+            console.log(festivals)
+            res.render("search.ejs", {festivals})
+    })
+})
 
 //add new festival to list
 router.post('/events/save', function (req,res){
