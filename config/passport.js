@@ -41,11 +41,11 @@ module.exports = function(passport){
 
     passport.use('local-login', new LocalStrategy({
         usernameField: 'email',
-        passwordField: 'paddword',
+        passwordField: 'password',
         passReqToCallback: true
     }, function(req, email, password, callback){
 
-        User.findOne({ 'local.eamil' : email}, function(err, user){
+        User.findOne({ 'local.email' : email}, function(err, user){
             if(err) {
                 return callback(err);
             }

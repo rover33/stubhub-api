@@ -43,6 +43,7 @@ router.post('/login', function(req, res, next){
 
 
 
+
 //website routes
 //get index of events
 router.get('/events', function (req, res){
@@ -74,7 +75,32 @@ router.get('/events/name', function (req, res){
         })
     })
 
+//add new festival to list
+router.post('/events/save'), function (req,res){
+    var festivals = response.data.events
+    console.log(festivals)
+//    let newFestival = new db.Festival.create({
+//         name: festivals[i].name,
+//         venue: festivals[i].venue.name,
+//         city: festivals[i].venue.city,
+//         eventDateLocal: festivals[i].eventDateLocal
+//         }, function(err, newFestival){
+//             console.log(newFestival)
+//     })
 
+}
+
+
+//delete festival from the list
+router.delete('/events/save'), function(req,res){
+    console.log(req.params)
+    let festivalId = req.params.id;
+
+    db.Festival.findOneAndRemove({ _id: festivalId}, function(err, deletedFestival){
+        res.json(deletedFestival)
+    })
+}
+    
 
 module.exports = router;
 //save api info to DB
@@ -99,28 +125,4 @@ module.exports = router;
 // })
 
 
-//add new festival to list
-// app.post('/events/save'), function (req,res){
-//     let data = req.body
-//     console.log(req.body)
-//    let newFestival = new db.Festival.create({
-//         name: req.body.events[0].name,
-//         venue: req.body.events[0].venue.name,
-//         city: req.body.events[0].venue.city,
-//         eventDateLocal: req.body.events[0].eventDateLocal
-//         }, function(err, newFestival){
-//             console.log(newFestival)
-//         })
-    
-//     //save new festival to database
-//     newFestival.save(function(err, Festival){
-//         if (err) {
-//             return res.err('couldnt save festival')
-//             return console.log("There is an error: " + err);
-//         }
-//         console.log("created ", newFestival);
-//         res.json(Festival)
-//         })
 
-    // } 
-    

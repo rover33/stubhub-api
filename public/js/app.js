@@ -1,38 +1,53 @@
 //client side
 
+$(document).ready(function(){
+    console.log('app.js is running');
 
 
 
 
-
-// $(document).ready(function(){
-//     console.log('app.js is running');
-
-//     $.ajax({
-//         url: "/events",
-//         type: "get",
-//         contentType: "application/json"
-//     }).done(function(data){
-//         data.forEach(function(festival){
-//             renderFestival(festival)
-//         });
-//     })
+// axios({
+//     url: "/events/save",
+//     type: "POST",
+//     data: {
+//         "name": name,
+//         "venue": venue,
+//         "city": city,
+//         "eventDateLocal": eventDateLocal
+//     }
 // })
 
-//     $('form').submit(function(e){
-//         e.preventDefault();
+    $.ajax({
+        url: "/events",
+        type: "get",
+        contentType: "application/json"
+    }).done(function(data){
+        data.forEach(function(festival){
+            renderFestival(festival)
+        });
+    })
+})
+
+    $('form').submit(function(e){
+        e.preventDefault();
     
-//     // var formdata = $(this).serialize();
+    var formdata = $(this).serialize();
 
-//     $(this).trgigger("reset");
+    $(this).trigger("reset");
 
-//     $.ajax({
-//         url: "/events/save",
-//         type: "POST",
-//         data: JSON,
-//         dataType: "JSON"
-//     }).done(function(data){
-//         console.log("post succuess")
-//         renderFestival(data)
-//     })
+    $.ajax({
+        url: "/events/save",
+        type: "POST",
+        dataType: "JSON",
+        data: {
+                "name": "name",
+                "venue": "venue",
+                "city": "city",
+                "eventDateLocal": "eventDateLocal"
+                }
+    }).done(function(data){
+        console.log("post succuess")
+        renderFestival(data)
+    })
+})
 // })
