@@ -80,6 +80,7 @@ router.get('/events/name', function (req, res){
 
 //add new festival to list
 router.post('/events/save', function (req,res){
+
     let festival = new db.Festival({
         name: req.body.name,
         venue: req.body.venue,

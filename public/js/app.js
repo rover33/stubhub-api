@@ -17,16 +17,16 @@ $(document).ready(function(){
 //     }
 // })
 
-//     $.ajax({
-//         url: "/events",
-//         type: "get",
-//         contentType: "application/json"
-//     }).done(function(data){
-//         data.forEach(function(festival){
-//             renderFestival(festival)
-//         });
-//     })
-// })
+    $.ajax({
+        url: "/api/events",
+        type: "get",
+        contentType: "application/json"
+    }).done(function(data){
+        data.forEach(function(festival){
+            renderFestival(festival)
+        });
+    })
+})
 
     $('form').submit(function(e){
         e.preventDefault();
