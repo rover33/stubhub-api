@@ -36,14 +36,9 @@ app.use(flash());
 
 require('./config/passport')(passport);
 
-let router = require('./config/routes');
+let router = require('./routes/routes');
 
-app.use('/', router);
-
-
-
-
-
+app.use('/api/', router);
 
 app.listen(process.env.PORT || 3000, function(){
     console.log('Server is up and running on http://localhost:3000/')

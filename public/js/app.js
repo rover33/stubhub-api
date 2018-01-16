@@ -28,22 +28,22 @@ $(document).ready(function(){
 //     })
 // })
 
-//     $('form').submit(function(e){
-//         e.preventDefault();
+    $('form').submit(function(e){
+        e.preventDefault();
     
-//     var formdata = $(this).serialize();
+    // var data = $(this).serialize();
 
-//     $(this).trigger("reset");
+    // $(this).trigger("reset");
 
     $.ajax({
-        url: "http://localhost:3000/events/save",
+        url: "http://localhost:3000/api/events/save",
         type: "POST",
         dataType: "JSON",
         data: {
-                "name": name,
-                "venue": venue,
-                "city": city,
-                "eventDateLocal": eventDateLocal
+                name: name,
+                venue: venue,
+                city: city,
+                eventDateLocal: eventDateLocal
                 }
     }).done(function(data){
         console.log(data)

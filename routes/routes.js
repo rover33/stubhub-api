@@ -4,6 +4,10 @@ const router = require('express').Router(),
     require('dotenv').config()
 
 
+//requireing models
+let db = require('../models')
+
+
 
 //access key
 const headers = { 
@@ -50,8 +54,7 @@ router.get('/events', function (req, res){
     console.log(headers)
     axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
         .then(function(response,body){
-        res.send(response.data)
-            
+          res.send(response.data)
         })
         .catch(function(error){
             console.log(error)
@@ -76,19 +79,31 @@ router.get('/events/name', function (req, res){
     })
 
 //add new festival to list
-router.post('/events/save'), function (req,res){
-    var festivals = response.data.events
-    console.log(festivals)
-//    let newFestival = new db.Festival.create({
-//         name: festivals[i].name,
-//         venue: festivals[i].venue.name,
-//         city: festivals[i].venue.city,
-//         eventDateLocal: festivals[i].eventDateLocal
-//         }, function(err, newFestival){
-//             console.log(newFestival)
-//     })
+router.post('/events/save', function (req,res){
+    let festival = new db.Festival({
+        name: req.body.name,
+        venue: req.body.venue,
+        city: req.body.city,
+        eventDateLocal: req.body.eventDateLocal
+    })
 
-}
+    db.Festival.findOne({name: req.body.name}),function(err, foundFestival){
+        if (err) 
+            return res.err('Sorry, festival already exists', {
+        });
+        if (foundFestival != undefined || foundFestival != null)
+          return res.send('Sorry, already exists', {
+        });
+    }
+
+
+    festival.save(function(err, user){
+        if (err) 
+            return res.err("there was an error", err);
+        res.send("yay")
+    })
+
+})
 
 
 //delete festival from the list
