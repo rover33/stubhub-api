@@ -5,6 +5,7 @@ body{
 
 legend{
     color: white;
+    font-size: 5rem;
 }
 
 label{
@@ -54,4 +55,19 @@ p{
 span{
     font-weight: bold;
     color:lightskyblue;
+}
+
+label{
+    color: lightskyblue;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.form-control{
+    padding: 30px;
+}
+
+#submit {
+    padding: 20px;
+    width: 150px;
 }
