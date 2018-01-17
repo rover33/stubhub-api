@@ -1,6 +1,7 @@
 let Festival = require('../models/festival'),
     User = require("../models/user"),
     expect = require('chai').expect
+    request = require('request')
     
 
 describe('checking if festival model works', function(){
@@ -20,4 +21,22 @@ describe('checking if festival model works', function(){
         });
     });
 
+});
+
+
+var URL = 'https://murmuring-woodland-75290.herokuapp.com/';
+
+describe("heroku", function() {
+	var apiError,apiResponse,apiBody;
+	before(function(done) {
+		request(URL, function(error, response, body) {
+			apiError = error;
+			apiResponse = response;
+			apiBody = body;
+			done();
+		});
+	});
+	it("should return 200 - OK", function() {
+		expect(apiResponse.statusCode).to.eq(200);
+    });
 });
