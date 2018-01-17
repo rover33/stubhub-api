@@ -71,7 +71,7 @@ router.get('/events', function (req, res){
     })
 
 //get name of one event
-router.get('/events/:id', function (req, res){
+router.get('/events/name', function (req, res){
     console.log(headers)
     axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
         .then(function(response,body){
@@ -96,10 +96,22 @@ router.get('/search', function(req,res){
             res.send("there is an error" + err)
 
         else
-            console.log(festivals)
             res.render("search.ejs", {festivals})
     })
 })
+
+//search by ID
+router.get('/search/:id', function(req,res){
+    db.Festival.findById(req.params.id, function(err, festivals){
+        if (err)
+            res.send("there is an error" + err)
+
+        else
+            res.json(festivals)
+    })
+})
+
+
 
 //add new festival to list
 router.post('/events/save', function (req,res){
@@ -130,16 +142,27 @@ router.post('/events/save', function (req,res){
 
 })
 
+//update
+router.put('/search/:id', function(req, res){
+    db.Festival.findOneAndUpdate({_id: req.params.id }, {$set: {name: req.body.name}}, {new: true}, function(err, festivals){
+      if (err) {return console.log("You failed:", + err)}
+      res.json(festivals);
+    })
+})
+
 
 //delete festival from the list
-router.delete('/events/:id'), function(req,res){
+router.delete('/search/:id', function(req,res){
     console.log(req.params)
     let festivalId = req.params.id;
+    
 
-    db.Festival.findOneAndRemove({ _id: festivalId}, function(err, deletedFestival){
+    db.Festival.findOneAndRemove({_id: festivalId}, function(err, deletedFestival){
+        if (err) 
+            console.log("fucked shit up" + err);
         res.json(deletedFestival)
     })
-}
+})
     
 
 module.exports = router;

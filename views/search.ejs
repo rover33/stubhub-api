@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    
+     <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <title>Search</title>
 </head>
 <body>
+    <div id ="musicFest">List of Festivals</div>
+    <nav id ="navBar">
+        <a href = "/">Home</a>
+        <a href = "/signup">Sign Up</a> 
+        <a href = "/login">Login</a>
+        <a href = "/search">Search Festivals</a>
+        <a href = "/newEvent">Save Festivals</a>
+    </nav>
+
     <ul>
         <% for (let i = 0; i < festivals.length; i++) { %>
             <div class = "festivalInfo">
-                <li>Name:<%= festivals[i].name %></li>
-                <li>Venue:<%= festivals[i].venue %></li>
-                <li>City:<%= festivals[i].city %></li>
-                <li>Date:<%= festivals[i].eventDateLocal %></li>
+                <li><span id ="eventName">Name:</span><%= festivals[i].name %></li>
+                <li><span id ="venueName">Venue:</span><%= festivals[i].venue %></li>
+                <li><span id ="cityName">City:</span><%= festivals[i].city %></li>
+                <li><span id ="dateName">Date:</span><%= festivals[i].eventDateLocal %></li>
             </div>    
             <br>
         <% } %>
