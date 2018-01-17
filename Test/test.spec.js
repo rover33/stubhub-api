@@ -22,30 +22,5 @@ describe('checking if festival model works', function(){
 
 });
 
-// let routes = require('../routes/routes')
-//     chai = require('chai')
-//     chai = require('chai-http');
-//     should = chai.should();
 
-// chai.use(chaiHttp);
 
-// describe("Events", () => {
-//     beforeEch((done) => {
-//         Events.remove({}, (err) => {
-//             done();
-//         })
-
-//     })
-// })
-// describe('/GET events', () => {
-//     it("it should GET all events", (done) => {
-//         chai.request(routes)
-//         .get('/events')
-//         .end((err, res) => {
-//             res.should.have.staus(200);
-//             res.body.should.be.a('array');
-//             res.body.length.should.be.eql(0);
-//             done();
-//         })
-//     })
-// })
