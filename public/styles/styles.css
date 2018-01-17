@@ -71,3 +71,8 @@ label{
     padding: 20px;
     width: 150px;
 }
+
+.email, .password, .button{
+    padding: 10px;
+    width: 200px;
+}
