@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
      <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
@@ -24,11 +24,12 @@
     <ul>
         <% for (let i = 0; i < festivals.length; i++) { %>
             <div class = "festivalInfo">
-                <li><span id ="eventName">Name:</span><%= festivals[i].name %></li>
-                <li><span id ="venueName">Venue:</span><%= festivals[i].venue %></li>
-                <li><span id ="cityName">City:</span><%= festivals[i].city %></li>
-                <li><span id ="dateName">Date:</span><%= festivals[i].eventDateLocal %></li>
-            </div>    
+                <li><span id ="eventName">Name: </span><%= festivals[i].name %></li>
+                <li><span id ="venueName">Venue: </span><%= festivals[i].venue %></li>
+                <li><span id ="cityName">City: </span><%= festivals[i].city %></li>
+                <li><span id ="dateName">Date: </span><%= festivals[i].eventDateLocal %></li>
+                <!-- <button>Delete</button> -->
+            </div>
             <br>
         <% } %>
     </ul>
