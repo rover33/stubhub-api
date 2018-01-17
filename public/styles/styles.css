@@ -1,5 +1,6 @@
 body{
  background: black;
+ font-family: "lobster";
 }
 
 legend{
@@ -18,36 +19,36 @@ label{
 #header{
     color:white;
     text-align: center;
-    font-size: 3rem;
+    font-size: 5rem;
 }
 
 #navBar{
     text-align: center;
-    padding: 2rem;
-    font-size: 2rem;
+    padding: 3rem;
+    font-size: 3rem;
 }
 
 a{
-    padding: 2rem;
+    padding: 3rem;
 }
 
 #musicFest{
     text-align: center;
     color: white;
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 .festivalInfo{
     color: white;
-    font-size: 1.5rem;
-    margin-top: 1rem;
+    font-size: 2rem;
+    margin-top: 2rem;
 }
 
 p{
     text-align: center;
     color:white;
-    font-size: 2rem;
-    margin-top: 5rem;
+    font-size: 3rem;
+    margin-top: 7rem;
 }
 
 span{

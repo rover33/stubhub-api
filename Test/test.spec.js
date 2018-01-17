@@ -21,6 +21,3 @@ describe('checking if festival model works', function(){
     });
 
 });
-
-
-
