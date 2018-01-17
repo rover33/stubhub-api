@@ -1,3 +1,5 @@
+<!--ejs alert if wrong info was put in -->
+
 <% if (message.length > 0) { %>
     <div class="alert alert-danger"><%= message %></div>
   <% } %>
@@ -8,6 +10,7 @@
 
 <div id = "header">Login Credentials</div>
 
+<!--nav bar -->
 <nav id ="navBar">
         <a href = "/">Home</a>
         <a href = "/signup">Sign Up</a> 
@@ -17,7 +20,7 @@
 
 <!--login forms -->
 <form action="/login" method="POST">
-    <div id = "login" class = "col-md-4">
+    <div id = "login" class = "col-md-12">
         <input type= "email" name="email" placeholder="email"</input>
         <input type= "password" name="password" placeholder="password"</input>
         <input type= "submit" value="submit"</input>

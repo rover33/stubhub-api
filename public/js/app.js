@@ -30,8 +30,6 @@ $(document).ready(function(){
         data: formData
     }).done(function(data){
         console.log(data)
-        // data.forEach(function(festival){
-        //     renderFestival(festival)
         });
     })
 })

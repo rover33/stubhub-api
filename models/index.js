@@ -1,3 +1,5 @@
+//mongodb routes for local and heroku
+
 var mongoose = require("mongoose");
 mongoose.connect( process.env.MONGODB_URI || 
                   process.env.MONGOLAB_URI || 

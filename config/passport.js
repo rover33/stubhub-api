@@ -13,6 +13,7 @@ module.exports = function(passport){
         });
     });
 
+    //passport signup
     passport.use('local-signup', new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
@@ -22,6 +23,7 @@ module.exports = function(passport){
 
             if (err) return callback(err);
 
+            //if there is a user let user know the email is in use, else created a new user
             if (user){
                 console.log("Found user");
                 return callback(null, false, req.flash("signupMessage", "Email in use"));
@@ -39,6 +41,7 @@ module.exports = function(passport){
 
     }));
 
+    //passport loging
     passport.use('local-login', new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',

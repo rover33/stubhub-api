@@ -36,3 +36,21 @@ a{
     color: white;
     font-size: 3rem;
 }
+
+.festivalInfo{
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+p{
+    text-align: center;
+    color:white;
+    font-size: 2rem;
+    margin-top: 5rem;
+}
+
+span{
+    font-weight: bold;
+    color:lightskyblue;
+}
