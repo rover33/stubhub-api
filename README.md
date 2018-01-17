@@ -5,6 +5,8 @@
 For this project I want to create a website that pulls from a 3rd party API. 
 I will be utilizing the Stub Hub API to pull their list of events. I want to be able to search for events by artist name, or by genre.
 
+[Heroku Link](https://murmuring-woodland-75290.herokuapp.com/)
+
 
 [Work Flow/Trello Board](https://trello.com/b/DlA9wcCs/stub-hub-api).
 
@@ -55,8 +57,6 @@ To install and uss EJS you need to have Node downloaded and NPM install --save e
 To install and uss Mocha.js and Chai.js you need to have Node downloaded and NPM install --save-dev mocha chai inside the project folder you want to use it in. once installed make sure to include it in your header like this.
 [Mocha.js](9https://mochajs.org/)
 [Chai.js](http://chaijs.com/)
-
-
 
 
 
