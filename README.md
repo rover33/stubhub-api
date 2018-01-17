@@ -8,19 +8,16 @@ I will be utilizing the Stub Hub API to pull their list of events. I want to be 
 
 [Work Flow/Trello Board](https://trello.com/b/DlA9wcCs/stub-hub-api).
 
-![WireFram]()
+![WireFrame](https://github.com/rover33/stubhub-api/blob/master/IMG_7846.JPG)
 
 ### Approach Taken
-
+I started first by getting the API to pull data on Postman. I had to get the API OAuth key working before I could make any calls. Once I was able to access the API I was able to get to take that data and seed it into my file. After I seeded my file I made the routes for evrything followed by creating login info with passport. Lastley I used boostrap to help me position and make the pages look nice.
 
 ### Obstacles
-
+I havent had a lot of time to play with bootstrap so that was an obstacle as well as using Axios and other routes. 
 
 ### Unsolved Problems
-
-
-### My own special twist
-
+I wanted to get a delete button working on the page and wanted to figure out how to use AXIOS to make ajax type calls.
 
 ### Technologies used
 -HTML
@@ -34,7 +31,7 @@ I will be utilizing the Stub Hub API to pull their list of events. I want to be 
 -ejs.js
 -Mocha
 -Chai
--normalize.css
+
 
 ### Installation
 
@@ -59,9 +56,9 @@ To install and uss Mocha.js and Chai.js you need to have Node downloaded and NPM
 [Mocha.js](9https://mochajs.org/)
 [Chai.js](http://chaijs.com/)
 
-To install and uss Normalize.css you need to have Node downloaded and NPM install normalize.css inside the project folder you want to use it in. once installed make sure the tag looks like this in your header. 
-[Normalize.css](https://necolas.github.io/normalize.css/)
-<link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+
+
+
 
 
 
