@@ -36,7 +36,7 @@ app.use(flash());
 
 require('./config/passport')(passport);
 
-let router = require('./routes/routes');
+let router = require('./config/routes');
 
 app.use('/', router);
 
