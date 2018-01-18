@@ -8,11 +8,7 @@ legend{ /* coloring and size for the legend title */
     font-size: 5rem;
 }
 
-label{
-    color: white;
-}
-
-#login{
+#login{ /* centering login forms on page */
     text-align: center;
     margin-top: 20vh;
 }
@@ -46,23 +42,16 @@ li{ /* removing the bullet points from the list */
     width: 100%
 }
 
-#musicFest{
+#musicFest{ /* landing page header sizing */
     text-align: center;
     color: white;
     font-size: 4rem;
 }
 
-.festivalInfo{
+.festivalInfo{ /* rendered festival info on page */
     color: white;
     font-size: 2rem;
     margin-top: 2rem;
-}
-
-p{
-    text-align: center;
-    color:white;
-    font-size: 3rem;
-    margin-top: 7rem;
 }
 
 span{ /* coloring for the names on the list item on search page */
