@@ -31,13 +31,17 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+//requiring passport so it works on other pages
 require('./config/passport')(passport);
 
+
+//function to check and see if the this a current or new user
 app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
   next();
 });
 
+//setting up routes for the router
 let router = require('./config/routes');
 
 app.use('/', router);
@@ -47,6 +51,8 @@ app.get('/', function (req, res) {
     res.render('landingpage.ejs' , { root : __dirname});
   });
 
+
+//listening on local host 3000 or on heroku
 app.listen(process.env.PORT || 3000, function(){
     console.log('Server is up and running on http://localhost:3000/')
 })

@@ -19,7 +19,7 @@
             <li><a href = "/search">Search Festivals</a><li>
             <li><a href = "/newEvent">Save Festivals</a><li>
             <li><a href = "https://rover33.github.io/Project-1-webgame/">Play Games</a></li>
-        <% if (currentUser) {%>
+        <% if (currentUser) {%> //ejs to check to see if user is logged in then hide login and sign up button, if not login or sign up
             <li><a href="/logout">Logout <%= currentUser.email %></a></li>
         <% } else { %>
             <li><a href="/login">Login</a></li>

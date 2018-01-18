@@ -20,10 +20,13 @@ const headers = {
 
   
 //authentication routes
+
+//signup
 router.get('/signup', function(req, res){
     res.render('signup.ejs', {message: req.flash('signupMessage')});
 });
 
+//when siging up this lets us know if there is a duplicate or new user by redirecting
 router.post('/signup', function(req, res, next){
     let signupStrategy = passport.authenticate('local-signup', {
         successRedirect: '/',
@@ -34,10 +37,12 @@ router.post('/signup', function(req, res, next){
     return signupStrategy(req, res, next);
 });
 
+//login message
 router.get('/login', function(req, res){
     res.render('login.ejs', {message: req.flash('loginMessage')})
 });
 
+//checking to see if the login is correct if not take us back to login
 router.post('/login', function(req, res, next){
     console.log('attempting to')
     let loginStrategy = passport.authenticate('local-login', {
@@ -48,6 +53,7 @@ router.post('/login', function(req, res, next){
     return loginStrategy(req, res, next);
 });
 
+//logout routes
 router.get('/logout', function(req, res){
     req.logout();
     res.redirect('/login');
