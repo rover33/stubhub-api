@@ -1,9 +1,9 @@
-body{
+body{ /* backgoung color for the body */
  background: black;
  font-family: "lobster";
 }
 
-legend{
+legend{ /* coloring and size for the legend title */
     color: white;
     font-size: 5rem;
 }
@@ -17,36 +17,33 @@ label{
     margin-top: 20vh;
 }
 
-#header{
+#header{ /* color and size for the header */
     color:white;
     text-align: center;
     font-size: 5rem;
 }
 
-#navBar{
+#navBar{ /* nave bar sizing and padding */
     text-align: center;
     padding: 3rem;
     font-size: 3rem;
 }
 
-a{
+a{ /* coloring for the a tags and padding */
     color: lightseagreen;
+    padding: 3rem;
 }
 
-.nav>li{
+.nav>li{ /* lining up the nav bar and centering it on the page */
     display: inline-block
 }
 
-li{
+li{ /* removing the bullet points from the list */
     list-style: none;
 }
 
-.container{
+.container{ /* setting a conatiner width */
     width: 100%
-}
-
-a{
-    padding: 3rem;
 }
 
 #musicFest{
@@ -68,27 +65,27 @@ p{
     margin-top: 7rem;
 }
 
-span{
+span{ /* coloring for the names on the list item on search page */
     font-weight: bold;
     color:lightseagreen;
 }
 
-label{
+label{ /* coloring for the labels on the save button */
     color: lightseagreen;
     font-weight: bold;
     font-size: 3rem;
 }
 
-.form-control{
+.form-control{ /* form siziing */
     padding: 30px;
 }
 
-#submit {
+#submit { /* submit button sizing */
     padding: 20px;
     width: 150px;
 }
 
-.email, .password, .button{
+.email, .password, .button{ /* sizing for login and password form */
     padding: 10px;
     width: 200px;
 }
