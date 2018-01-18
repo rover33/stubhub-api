@@ -33,6 +33,10 @@ ul{
     text-align: center;
 }
 
+a{
+    color: lightseagreen;
+}
+
 .nav>li{
     display: inline-block
 }
@@ -70,11 +74,11 @@ p{
 
 span{
     font-weight: bold;
-    color:lightskyblue;
+    color:lightseagreen;
 }
 
 label{
-    color: lightskyblue;
+    color: lightseagreen;
     font-weight: bold;
     font-size: 3rem;
 }

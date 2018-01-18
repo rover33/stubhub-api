@@ -34,10 +34,10 @@
          <!-- ejs for rendering and appending the info to the page-->
         <% for (let i = 0; i < festivals.length; i++) { %>
             <div class = "festivalInfo" >
-                <li class= "search"><span id ="eventName">Name: </span><%= festivals[i].name %></li>
-                <li class= "search"><span id ="venueName">Venue: </span><%= festivals[i].venue %></li>
-                <li class= "search"><span id ="cityName">City: </span><%= festivals[i].city %></li>
-                <li class= "search"><span id ="dateName">Date: </span><%= festivals[i].eventDateLocal %></li>
+                <li class= "text-left"><span id ="eventName">Name: </span><%= festivals[i].name %></li>
+                <li class= "text-left"><span id ="venueName">Venue: </span><%= festivals[i].venue %></li>
+                <li class= "text-left"><span id ="cityName">City: </span><%= festivals[i].city %></li>
+                <li class= "text-left"><span id ="dateName">Date: </span><%= festivals[i].eventDateLocal %></li>
             </div>
             <br>
         <% } %>
