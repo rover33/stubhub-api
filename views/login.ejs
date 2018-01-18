@@ -11,15 +11,24 @@
 
 <div id = "header">Login Credentials</div>
 
+<div class = "container">
 <!--nav bar -->
-<nav id ="navBar">
-        <a href = "/">Home</a>
-        <a href = "/signup">Sign Up</a> 
-        <a href = "/search">Search Festivals</a>
-        <a href = "/newEvent">Save Festivals</a>
-        <a href = "https://rover33.github.io/Project-1-webgame/">Play Games</a>
+    <nav id ="navBar">
+        <ul class="nav">
+            <li><a href = "/">Home</a></li>
+            <li><a href = "/search">Search Festivals</a><li>
+            <li><a href = "/newEvent">Save Festivals</a><li>
+            <li><a href = "https://rover33.github.io/Project-1-webgame/">Play Games</a></li>
+        <% if (currentUser) {%>
+            <li><a href="/logout">Logout <%= currentUser.email %></a></li>
+        <% } else { %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li> 
+            <% } %>
+           
+        </ul>
     </nav>
-
+</div>
 <!--login forms -->
 <form action="/login" method="POST">
     <div id = "login" class = "col-md-12">

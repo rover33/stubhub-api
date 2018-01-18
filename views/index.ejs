@@ -18,11 +18,19 @@
   <body>
       <div id ="musicFest">Save New Festival</div>
       <nav id ="navBar">
-          <a href = "/">Home</a>
-          <a href = "/login">Login</a> 
-          <a href = "/signup">Sign Up</a>
-          <a href = "/search">Search Festivals</a>
-          <a href = "https://rover33.github.io/Project-1-webgame/">Play Games</a>
+        <ul class="nav">
+              <li><a href = "/">Home</a></li>
+              <li><a href = "/search">Search Festivals</a><li>
+              <li><a href = "https://rover33.github.io/Project-1-webgame/">Play Games</a></li>
+          <% if (currentUser) {%>
+              <li><a href="/logout">Logout <%= currentUser.email %></a></li>
+          <% } else { %>
+              <li><a href="/login">Login</a></li>
+              <li><a href="/signup">Signup</a></li> 
+              <% } %>
+              
+          
+          </ul>
       </nav>
 
 

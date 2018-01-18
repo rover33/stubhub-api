@@ -16,22 +16,28 @@
      <!-- nav bar -->
     <div id ="musicFest">List of Festivals</div>
     <nav id ="navBar">
-        <a href = "/">Home</a>
-        <a href = "/signup">Sign Up</a> 
-        <a href = "/login">Login</a>
-        <a href = "/search">Search Festivals</a>
-        <a href = "/newEvent">Save Festivals</a>
-        <a href = "https://rover33.github.io/Project-1-webgame/">Play Games</a>
+        <ul class="nav">
+            <li><a href = "/">Home</a></li>
+            <li><a href = "/newEvent">Save Festivals</a><li>
+            <li><a href = "https://rover33.github.io/Project-1-webgame/">Play Games</a></li>
+        <% if (currentUser) {%>
+            <li><a href="/logout">Logout <%= currentUser.email %></a></li>
+        <% } else { %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li> 
+            <% } %>
+            
+        </ul>
     </nav>
 
     <ul>
          <!-- ejs for rendering and appending the info to the page-->
         <% for (let i = 0; i < festivals.length; i++) { %>
             <div class = "festivalInfo" >
-                <li><span id ="eventName">Name: </span><%= festivals[i].name %></li>
-                <li><span id ="venueName">Venue: </span><%= festivals[i].venue %></li>
-                <li><span id ="cityName">City: </span><%= festivals[i].city %></li>
-                <li><span id ="dateName">Date: </span><%= festivals[i].eventDateLocal %></li>
+                <li class= "search"><span id ="eventName">Name: </span><%= festivals[i].name %></li>
+                <li class= "search"><span id ="venueName">Venue: </span><%= festivals[i].venue %></li>
+                <li class= "search"><span id ="cityName">City: </span><%= festivals[i].city %></li>
+                <li class= "search"><span id ="dateName">Date: </span><%= festivals[i].eventDateLocal %></li>
             </div>
             <br>
         <% } %>

@@ -48,12 +48,16 @@ router.post('/login', function(req, res, next){
     return loginStrategy(req, res, next);
 });
 
+router.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/login');
+  });
 
 
 
 //website routes
 router.get('/newEvent', function(req, res){
-    res.sendfile(path.join(process.cwd(),"/views/index.html"))   
+    res.render(path.join(process.cwd(),"/views/index.ejs"))   
 })
 
 
@@ -63,7 +67,7 @@ router.get('/events', function (req, res){
     console.log(headers)
     axios.get("https://api.stubhub.com/search/catalog/events/v3?status=active |contingent&name=music festival", {headers: headers})
         .then(function(response,body){
-          res.send(response.data)
+          res.render(response.data)
         })
         .catch(function(error){
             console.log(error)
@@ -81,7 +85,7 @@ router.get('/events/name', function (req, res){
                 city: response.data.events[0].venue.city,
                 eventDateLocal: response.data.events[0].eventDateLocal
             }
-            res.send(concert);
+            res.render(concert);
         })
         .catch(function(error){
             console.log(error)

@@ -19,10 +19,7 @@ let db = require('./models')
 // serve static files in public
 app.use(express.static('public'));
 
-// define a root route: localhost:3000/
-app.get('/', function (req, res) {
-    res.sendFile('views/landingpage.html' , { root : __dirname});
-  });
+
 
 //Set up EJS
 app.engine('ejs', require('ejs').renderFile);
@@ -36,9 +33,21 @@ app.use(flash());
 
 require('./config/passport')(passport);
 
+require('./config/passport')(passport);
+
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 let router = require('./config/routes');
 
 app.use('/', router);
+
+// define a root route: localhost:3000/
+app.get('/', function (req, res) {
+    res.render('landingpage.ejs' , { root : __dirname});
+  });
 
 app.listen(process.env.PORT || 3000, function(){
     console.log('Server is up and running on http://localhost:3000/')

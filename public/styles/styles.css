@@ -29,6 +29,22 @@ label{
     font-size: 3rem;
 }
 
+ul{
+    text-align: center;
+}
+
+.nav>li{
+    display: inline-block
+}
+
+li{
+    list-style: none;
+}
+
+.container{
+    width: 100%
+}
+
 a{
     padding: 3rem;
 }
